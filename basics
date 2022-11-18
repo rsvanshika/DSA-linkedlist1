@@ -1,0 +1,70 @@
+package DSA_LINKEDLIST;
+/* creation of node
+add last
+size of linked list
+display linked list
+ */
+public class LinkedList {
+    Node head;
+    Node tail;
+    int size=0;
+    class Node
+        //creation of node
+    {
+        int data;
+        Node next;
+
+        Node(int data, Node next)
+        {
+            this.data=data;
+            this.next=next;
+        }
+        Node(int data)
+        {
+            this.data=data;
+            this.next=null;
+        }
+    }
+
+    void addLast(int val)
+    { Node n= new Node(val);
+
+        if(head==null)
+        {
+            head=n;
+            tail=n;
+        }
+        else {
+            tail.next = n;
+            tail=n;
+        }
+        size++;
+    }
+
+    int getSize()
+    {
+        return size;
+    }
+    void display()
+    {
+        Node temp= head;
+        while(temp!=null)
+        {
+            System.out.print(temp.data + " ");
+            temp=temp.next;
+        }
+        System.out.println("end");
+    }
+    public static void main(String[] args) {
+        LinkedList l1= new LinkedList();
+        l1.addLast(2);
+        l1.addLast(4);
+        l1.addLast(6);
+        l1.addLast(8);
+        l1.addLast(10);
+        l1.addLast(12);
+        l1.display();
+        System.out.println(l1.getSize());
+
+    }
+}
